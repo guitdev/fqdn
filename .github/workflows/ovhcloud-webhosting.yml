@@ -21,3 +21,5 @@ jobs:
           *.txt
           *.bkp
           .*
+          *.md
+          .github
