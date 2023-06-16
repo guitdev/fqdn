@@ -22,4 +22,4 @@ jobs:
           *.bkp
           .*
           *.md
-          .github
+          #.github
