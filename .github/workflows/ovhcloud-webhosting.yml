@@ -1,0 +1,23 @@
+on: push
+name: Deploy to OVHcloud Web Hosting
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v3
+
+    - name: Deploy files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ftp.cluster031.ovh.net
+        username: ${{ secrets.OVH_HOSTING_USER }}
+        password: ${{ secrets.OVH_HOSTING_PASSWORD }}
+        # protocol: ftps
+        # port: 22 # ftps port
+        exclude: |
+          **/.git/**
+          *.txt
+          *.bkp
+          *.*
